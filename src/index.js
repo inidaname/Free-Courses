@@ -1,10 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import register from './registerServiceWorker';
+import reducers from './reducers';
+
+// style
+import './index.scss';
 
 // libs
-import './../bower_components/font-awesome/css/font-awesome.min.css';
+import './../node_modules/font-awesome/css/font-awesome.min.css';
+import './../node_modules/flag-icon-css/css/flag-icon.min.css';
 
-// Containers
 import Container from './containers/container';
 
-ReactDOM.render(<Container />, document.getElementById('app'));
+
+register();
+
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+
+
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <Container />
+  </Provider>
+  , document.getElementById('app')
+);

@@ -5,12 +5,14 @@
     top: 61px;
     left: 0;
     bottom: 0;
+    box-shadow: 5px 0 5px -2px rgba(156, 39, 176, 0.15);
     overflow-x: hidden;
-    overflow-y: auto;
-    box-shadow: 5px 0 5px -2px #f2f2f2;
+    overflow-y: hidden;
+    &:hover {
+        overflow-y: auto;
+    }
     &-inner {
-        width: 260px;
-        padding: 40px 20px 60px 60px;
+        padding: 40px 20px 60px 20px;
     }
     .search {
         height: 30px;
@@ -41,7 +43,7 @@
             padding: 5px 0px;
             padding-left: 15px;
             margin-top: 0.5em;
-            cursor: pointer;
+
             ul {
                 padding-left: 1em;
                 font-size: 0.85em;
@@ -49,6 +51,7 @@
             .item {
                 color: #000;
                 text-decoration: none;
+                font-family: 'Catamaran', sans-serif;
                 &:hover {
                     border-bottom: 2px solid #333;
                 }
@@ -85,6 +88,7 @@
         transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
         -webkit-transform: translate(-280px, 0);
         transform: translate(-280px, 0);
+        overflow-y: auto;
         &.open {
             transform: translate(0, 0);
         }
